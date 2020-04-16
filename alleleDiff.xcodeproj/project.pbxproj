@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1193C1642447F41A00B0F6A9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1193C1632447F41A00B0F6A9 /* main.cpp */; };
+		119376A92448A65F006C066D /* readFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 119376A72448A65F006C066D /* readFile.cpp */; };
+		119376AC2448A76B006C066D /* processAllele.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 119376AA2448A76B006C066D /* processAllele.cpp */; };
+		1193C1642447F41A00B0F6A9 /* alleleDiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1193C1632447F41A00B0F6A9 /* alleleDiff.cpp */; };
+		1193C16C2447FE0500B0F6A9 /* normal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1193C16B2447FE0500B0F6A9 /* normal.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		119376A62448A377006C066D /* populationInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = populationInfo.h; sourceTree = "<group>"; };
+		119376A72448A65F006C066D /* readFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = readFile.cpp; sourceTree = "<group>"; };
+		119376A82448A65F006C066D /* readFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = readFile.hpp; sourceTree = "<group>"; };
+		119376AA2448A76B006C066D /* processAllele.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = processAllele.cpp; sourceTree = "<group>"; };
+		119376AB2448A76B006C066D /* processAllele.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = processAllele.hpp; sourceTree = "<group>"; };
 		1193C1602447F41A00B0F6A9 /* alleleDiff */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = alleleDiff; sourceTree = BUILT_PRODUCTS_DIR; };
-		1193C1632447F41A00B0F6A9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1193C1632447F41A00B0F6A9 /* alleleDiff.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = alleleDiff.cpp; sourceTree = "<group>"; };
+		1193C16A2447FE0500B0F6A9 /* normal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = normal.h; sourceTree = "<group>"; };
+		1193C16B2447FE0500B0F6A9 /* normal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = normal.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +67,14 @@
 		1193C1622447F41A00B0F6A9 /* alleleDiff */ = {
 			isa = PBXGroup;
 			children = (
-				1193C1632447F41A00B0F6A9 /* main.cpp */,
+				1193C16B2447FE0500B0F6A9 /* normal.cpp */,
+				1193C16A2447FE0500B0F6A9 /* normal.h */,
+				1193C1632447F41A00B0F6A9 /* alleleDiff.cpp */,
+				119376A62448A377006C066D /* populationInfo.h */,
+				119376A72448A65F006C066D /* readFile.cpp */,
+				119376A82448A65F006C066D /* readFile.hpp */,
+				119376AA2448A76B006C066D /* processAllele.cpp */,
+				119376AB2448A76B006C066D /* processAllele.hpp */,
 			);
 			path = alleleDiff;
 			sourceTree = "<group>";
@@ -119,7 +136,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1193C1642447F41A00B0F6A9 /* main.cpp in Sources */,
+				119376AC2448A76B006C066D /* processAllele.cpp in Sources */,
+				119376A92448A65F006C066D /* readFile.cpp in Sources */,
+				1193C16C2447FE0500B0F6A9 /* normal.cpp in Sources */,
+				1193C1642447F41A00B0F6A9 /* alleleDiff.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
