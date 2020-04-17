@@ -9,7 +9,7 @@
 #ifndef populationInfo_h
 #define populationInfo_h
 
-vector<string> population {
+std::vector<std::string> population {
     //EAS
     "CHB",
     "JPT",
@@ -43,7 +43,7 @@ vector<string> population {
     "ITU"
 };
 
-vector<string> EAS {
+std::vector<std::string> EAS {
     "CHB",
     "JPT",
     "CHS",
@@ -51,7 +51,7 @@ vector<string> EAS {
     "KHV"
 };
 
-vector<string> EUR {
+std::vector<std::string> EUR {
     "CEU",
     "TSI",
     "FIN",
@@ -59,7 +59,7 @@ vector<string> EUR {
     "IBS"
 };
 
-vector<string> AFR {
+std::vector<std::string> AFR {
     "YRI",
     "LWK",
     "GWD",
@@ -69,14 +69,14 @@ vector<string> AFR {
     "ACB"
 };
 
-vector<string> AMR {
+std::vector<std::string> AMR {
     "MXL",
     "PUR",
     "CLM",
     "PEL"
 };
 
-vector<string> SAS {
+std::vector<std::string> SAS {
     "GIH",
     "PJL",
     "BEB",
@@ -84,4 +84,12 @@ vector<string> SAS {
     "ITU"
 };
 
+
+std::vector<std::string> majorPopulation {
+    "EAS",
+    "EUR",
+    "AFR",
+    "AMR",
+    "SAS"
+};
 #endif /* populationInfo_h */

@@ -11,6 +11,6 @@
 
 #include <stdio.h>
 
-bool processAllele(const char* alleleFile, const char* outputFile);
+bool processAllele(const char* alleleFile, const char* outputFile1, const char* outputFile2);
 
 #endif /* processAllele_hpp */
