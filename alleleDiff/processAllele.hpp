@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 
-bool processAllele(const char* alleleFile, const char* outputFile1, const char* outputFile2);
+bool processAllele(const char* alleleFile, const char* outputFile1, const char* outputFile2, double mafCutoff = 0.01);
+
+bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* outputFile1, const char* outputFile2, double mafCutoff = 0.01);
 
 #endif /* processAllele_hpp */

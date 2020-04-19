@@ -26,7 +26,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		119376A62448A377006C066D /* populationInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = populationInfo.h; sourceTree = "<group>"; };
 		119376A72448A65F006C066D /* readFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = readFile.cpp; sourceTree = "<group>"; };
 		119376A82448A65F006C066D /* readFile.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = readFile.hpp; sourceTree = "<group>"; };
 		119376AA2448A76B006C066D /* processAllele.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = processAllele.cpp; sourceTree = "<group>"; };
@@ -70,7 +69,6 @@
 				1193C16B2447FE0500B0F6A9 /* normal.cpp */,
 				1193C16A2447FE0500B0F6A9 /* normal.h */,
 				1193C1632447F41A00B0F6A9 /* alleleDiff.cpp */,
-				119376A62448A377006C066D /* populationInfo.h */,
 				119376A72448A65F006C066D /* readFile.cpp */,
 				119376A82448A65F006C066D /* readFile.hpp */,
 				119376AA2448A76B006C066D /* processAllele.cpp */,
