@@ -335,6 +335,7 @@ bool processAllele(const char* alleleFile, const char* outputFile1, const char* 
 
 bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* outputFile1, const char* outputFile2, double mafCutoff) {
     
+    // SNP informaiton
     vector<int> rsSNPInfo;
     vector<string> SNPInfo;
     
@@ -365,6 +366,7 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
     
     
     
+    // alele information
     fin.open(alleleFile);
     if(!fin.is_open()){
         cerr << "Cannot ope file "<<alleleFile<<endl;
@@ -398,13 +400,18 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
     vector<double> mac(population.size(), 0.0);
     vector<double> nchrobs(population.size(), 0.0);
     string currentChr = "";
+    string currentPos = "";
     string currentSNP = "";
     string currentA1 = "";
     string currentA2 = "";
+    string currentGene = "";
+    string currentInfo = "";
     string currentTag = "";
+    
     
     getline(fin, header); // remove header
     size_t numSNP = 0;
+    size_t numMiss = 0;
     while (!fin.eof()) {
         string fline;
         getline(fin, fline);
@@ -437,7 +444,7 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                     break;
                 }
                 
-                string outline = currentChr + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t";
+                string outline = currentChr + "\t" + currentPos + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t" + currentGene + "\t" + currentInfo + "\t";
                 string outline2 = outline;
                 for(size_t i=0; i<(maf.size()-1); i++){
                     for(size_t j=(i+1); j<maf.size(); j++){
@@ -459,6 +466,9 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                 
                 fout1 << outline << endl;
                 fout2 << outline2 << endl;
+                if(currentPos == ""){
+                    numMiss++;
+                }
                 numSNP++;
             }
             break;
@@ -474,6 +484,21 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                     currentA1 = vsline[3];
                     currentA2 = vsline[4];
                     currentTag = currentSNP + currentA1 + currentA2;
+                    
+                    int rsNumber = stoi(currentSNP.substr(2));
+                    int idx = binSearch(rsSNPInfo, rsNumber);
+                    
+                    if(idx<0){
+                        currentPos = "";
+                        currentGene = "";
+                        currentInfo = "";
+                    } else {
+                        vector<string> vsTmp = split(SNPInfo[idx], "\t");
+                        currentPos = vsTmp[0];
+                        currentGene = vsTmp[1];
+                        currentInfo = vsTmp[2];
+                    }
+                    
                     numRace = 0;
                     continue;
                 }
@@ -503,9 +528,24 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                     currentA1 = vsline[3];
                     currentA2 = vsline[4];
                     currentTag = currentSNP + currentA1 + currentA2;
+                    
+                    int rsNumber = stoi(currentSNP.substr(2));
+                    int idx = binSearch(rsSNPInfo, rsNumber);
+                    
+                    if(idx<0){
+                        currentPos = "";
+                        currentGene = "";
+                        currentInfo = "";
+                    } else {
+                        vector<string> vsTmp = split(SNPInfo[idx], "\t");
+                        currentPos = vsTmp[0];
+                        currentGene = vsTmp[1];
+                        currentInfo = vsTmp[2];
+                    }
+                    
                     numRace = 0;
                     
-                    int idx = -1;
+                    idx = -1;
                     for(size_t i=0; i<population.size(); i++){
                         if(population[i] == vsline[2]){
                             idx = (int)i;
@@ -534,7 +574,7 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                 mafMajor[3] = mafAMR;
                 mafMajor[4] = mafSAS;
                 
-                string outline = currentChr + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t";
+                string outline = currentChr + "\t" + currentPos + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t" + currentGene + "\t" + currentInfo + "\t";
                 string outline2 = outline;
                 for(size_t i=0; i<(maf.size()-1); i++){
                     for(size_t j=(i+1); j<maf.size(); j++){
@@ -552,6 +592,9 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                 
                 fout1 << outline << endl;
                 fout2 << outline2 << endl;
+                if(currentPos == ""){
+                    numMiss++;
+                }
                 numSNP++;
                 if(numSNP % 10000 == 0){
                     cout << numSNP << endl;
@@ -562,6 +605,21 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
             currentA1 = vsline[3];
             currentA2 = vsline[4];
             currentTag = currentSNP + currentA1 + currentA2;
+            
+            int rsNumber = stoi(currentSNP.substr(2));
+            int idx = binSearch(rsSNPInfo, rsNumber);
+            
+            if(idx<0){
+                currentPos = "";
+                currentGene = "";
+                currentInfo = "";
+            } else {
+                vector<string> vsTmp = split(SNPInfo[idx], "\t");
+                currentPos = vsTmp[0];
+                currentGene = vsTmp[1];
+                currentInfo = vsTmp[2];
+            }
+            
             numRace = 0;
         }
         
@@ -591,6 +649,7 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
     fout1.close();
     fout2.close();
     
+    cout << "SNP cannot find: " << numMiss << endl;
     cout << "Total SNP: " << numSNP << endl;
     
     return true;

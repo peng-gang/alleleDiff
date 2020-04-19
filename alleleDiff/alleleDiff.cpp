@@ -41,6 +41,13 @@ int main(int argc, const char * argv[]) {
         }
     } else if(argc == 6) {
         cout << "Start to calculate with SNP information" << endl;
+        
+        if(!processAllele(argv[1], argv[2], argv[3], argv[4], stof(string(argv[5])))) {
+            cout<<"Error during process" << endl;
+            return 1;
+        } else {
+            cout<<"Finished" <<endl;
+        }
     } else {
         cout << "Too many parameters!" << endl;
         cout << "Usage 1: " << endl;
