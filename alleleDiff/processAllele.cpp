@@ -111,18 +111,28 @@ bool processAllele(const char* alleleFile, const char* outputFile1, const char* 
     ofstream fout2(outputFile2);
     
     fout1 << "CHR\tSNP\tA1\tA2\t";
+    /*
     for(size_t i = 0; i<(population.size()-1); i++){
         for(size_t j=(i+1); j<population.size(); j++){
             fout1 << population[i] << "-" << population[j] << "\t";
         }
     }
+     */
+    for(size_t i=0; i<population.size(); i++){
+        fout1 << population[i] << "\t";
+    }
     fout1 <<endl;
     
     fout2 << "CHR\tSNP\tA1\tA2\t";
+    /*
     for(size_t i = 0; i<(majorPopulation.size()-1); i++){
         for(size_t j=(i+1); j<majorPopulation.size(); j++){
             fout2 << majorPopulation[i] << "-" << majorPopulation[j] << "\t";
         }
+    }
+     */
+    for(size_t i=0; i<majorPopulation.size(); i++){
+        fout2 << majorPopulation[i] << "\t";
     }
     fout2 <<endl;
     
@@ -175,10 +185,15 @@ bool processAllele(const char* alleleFile, const char* outputFile1, const char* 
                 
                 string outline = currentChr + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t";
                 string outline2 = outline;
+                /*
                 for(size_t i=0; i<(maf.size()-1); i++){
                     for(size_t j=(i+1); j<maf.size(); j++){
                         outline = outline + to_string(maf[i] - maf[j]) + "\t";
                     }
+                }
+                 */
+                for(size_t i=0; i<maf.size(); i++){
+                    outline = outline + to_string(maf[i]) + "\t";
                 }
                 
                 mafMajor[0] = mafEAS;
@@ -187,10 +202,16 @@ bool processAllele(const char* alleleFile, const char* outputFile1, const char* 
                 mafMajor[3] = mafAMR;
                 mafMajor[4] = mafSAS;
                 
+                /*
                 for(size_t i=0; i<(mafMajor.size()-1); i++){
                     for(size_t j=(i+1); j<mafMajor.size(); j++){
                         outline2 = outline2 + to_string(mafMajor[i] - mafMajor[j]) + "\t";
                     }
+                }
+                 */
+                
+                for(size_t i=0; i<mafMajor.size(); i++){
+                    outline2 = outline2 + to_string(mafMajor[i]) + "\t";
                 }
                 
                 fout1 << outline << endl;
@@ -272,18 +293,28 @@ bool processAllele(const char* alleleFile, const char* outputFile1, const char* 
                 
                 string outline = currentChr + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t";
                 string outline2 = outline;
+                
+                /*
                 for(size_t i=0; i<(maf.size()-1); i++){
                     for(size_t j=(i+1); j<maf.size(); j++){
                         outline = outline + to_string(maf[i] - maf[j]) + "\t";
                     }
                 }
+                 */
+                for(size_t i= 0; i<maf.size(); i++){
+                    outline = outline + to_string(maf[i]) + "\t";
+                }
                 
                 
-                
+                /*
                 for(size_t i=0; i<(mafMajor.size()-1); i++){
                     for(size_t j=(i+1); j<mafMajor.size(); j++){
                         outline2 = outline2 + to_string(mafMajor[i] - mafMajor[j]) + "\t";
                     }
+                }
+                 */
+                for(size_t i=0; i<mafMajor.size(); i++){
+                    outline2 = outline2 + to_string(mafMajor[i]) + "\t";
                 }
                 
                 fout1 << outline << endl;
@@ -378,18 +409,26 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
     ofstream fout2(outputFile2);
     
     fout1 << "CHR\tPos\tSNP\tA1\tA2\tGene\tInfo\t";
+    /*
     for(size_t i = 0; i<(population.size()-1); i++){
         for(size_t j=(i+1); j<population.size(); j++){
             fout1 << population[i] << "-" << population[j] << "\t";
         }
+    } */
+    for(size_t i=0; i<population.size(); i++){
+        fout1 << population[i] << "\t";
     }
     fout1 <<endl;
     
     fout2 << "CHR\tPos\tSNP\tA1\tA2\tGene\tInfo\t";
+    /*
     for(size_t i = 0; i<(majorPopulation.size()-1); i++){
         for(size_t j=(i+1); j<majorPopulation.size(); j++){
             fout2 << majorPopulation[i] << "-" << majorPopulation[j] << "\t";
         }
+    } */
+    for(size_t i=0; i<majorPopulation.size(); i++){
+        fout2 << majorPopulation[i] << "\t";
     }
     fout2 <<endl;
     
@@ -446,10 +485,16 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                 
                 string outline = currentChr + "\t" + currentPos + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t" + currentGene + "\t" + currentInfo + "\t";
                 string outline2 = outline;
+                /*
                 for(size_t i=0; i<(maf.size()-1); i++){
                     for(size_t j=(i+1); j<maf.size(); j++){
                         outline = outline + to_string(maf[i] - maf[j]) + "\t";
                     }
+                }
+                 */
+                
+                for(size_t i=0; i<maf.size(); i++){
+                    outline = outline + to_string(maf[i]) + "\t";
                 }
                 
                 mafMajor[0] = mafEAS;
@@ -458,15 +503,21 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                 mafMajor[3] = mafAMR;
                 mafMajor[4] = mafSAS;
                 
+                /*
                 for(size_t i=0; i<(mafMajor.size()-1); i++){
                     for(size_t j=(i+1); j<mafMajor.size(); j++){
                         outline2 = outline2 + to_string(mafMajor[i] - mafMajor[j]) + "\t";
                     }
                 }
+                 */
+                for(size_t i=0; i<mafMajor.size(); i++){
+                    outline2 = outline2 + to_string(mafMajor[i]) + "\t";
+                }
                 
                 fout1 << outline << endl;
                 fout2 << outline2 << endl;
                 if(currentPos == ""){
+                    cout<<currentSNP<<endl;
                     numMiss++;
                 }
                 numSNP++;
@@ -576,23 +627,33 @@ bool processAllele(const char* alleleFile, const char* snpInfoFile, const char* 
                 
                 string outline = currentChr + "\t" + currentPos + "\t" + currentSNP + "\t" + currentA1 + "\t" + currentA2 + "\t" + currentGene + "\t" + currentInfo + "\t";
                 string outline2 = outline;
+                /*
                 for(size_t i=0; i<(maf.size()-1); i++){
                     for(size_t j=(i+1); j<maf.size(); j++){
                         outline = outline + to_string(maf[i] - maf[j]) + "\t";
                     }
                 }
+                 */
+                for(size_t i=0; i<maf.size(); i++){
+                    outline = outline + to_string(maf[i]) + "\t";
+                }
                 
-                
-                
+                /*
                 for(size_t i=0; i<(mafMajor.size()-1); i++){
                     for(size_t j=(i+1); j<mafMajor.size(); j++){
                         outline2 = outline2 + to_string(mafMajor[i] - mafMajor[j]) + "\t";
                     }
                 }
+                 */
+                
+                for(size_t i=0; i<mafMajor.size(); i++){
+                    outline2 = outline2 + to_string(mafMajor[i]) + "\t";
+                }
                 
                 fout1 << outline << endl;
                 fout2 << outline2 << endl;
                 if(currentPos == ""){
+                    cout<<currentSNP<<endl;
                     numMiss++;
                 }
                 numSNP++;
